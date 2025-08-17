@@ -30,9 +30,12 @@ const themes = {
   },
 };
 
-const ThemeContext = createContext({
-  theme: "default" as Theme,
-  setTheme: (theme: Theme) => {},
+const ThemeContext = createContext<{
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+}>({
+  theme: "default",
+  setTheme: () => {},
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {

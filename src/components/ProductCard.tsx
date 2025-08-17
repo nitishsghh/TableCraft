@@ -23,8 +23,8 @@ export default function ProductCard({ product }: ProductCardProps) {
   }, []);
 
   useEffect(() => {
-    if (product.discount?.endDate) {
-      const endDate = new Date(product.discount.endDate);
+    if (product.discount?.validUntil) {
+      const endDate = new Date(product.discount.validUntil);
       if (!isNaN(endDate.getTime())) {
         setDiscountEndDate(endDate.toLocaleDateString('en-IN', {
           year: 'numeric',
@@ -131,12 +131,8 @@ export default function ProductCard({ product }: ProductCardProps) {
         )}
         {product.discount && (
           <div
-            className={`absolute top-2 right-2 px-2 py-1 rounded-full text-sm font-semibold transition-transform duration-300 ${
+            className={`absolute top-2 right-2 px-2 py-1 rounded-full text-sm font-semibold transition-transform duration-300 bg-red-500 text-white ${
               isHovered ? 'scale-110' : 'scale-100'
-            } ${
-              product.discount.isSpecialOffer
-                ? 'bg-red-500 text-white'
-                : 'bg-green-500 text-white'
             }`}
             style={{
               transform: isHovered ? 'translateZ(20px)' : 'translateZ(0)',

@@ -8,7 +8,7 @@ export default function ThemeSwitcher() {
       {["default", "dark", "green", "red"].map((t) => (
         <button
           key={t}
-          onClick={() => setTheme(t as any)}
+          onClick={() => setTheme(t as 'default' | 'dark' | 'green' | 'red')}
           className={`px-3 py-1 rounded ${theme === t ? 'bg-[var(--primary)] text-white' : 'bg-gray-200'}`}
         >
           {t.charAt(0).toUpperCase() + t.slice(1)}

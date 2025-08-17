@@ -27,7 +27,6 @@ interface Order {
 
 export default function OrdersPage() {
   const [orders, setOrders] = useState<Order[]>([]);
-  const [hoveredOrder, setHoveredOrder] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
